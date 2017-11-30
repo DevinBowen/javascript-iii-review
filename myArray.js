@@ -11,12 +11,24 @@ class MyArray{
 
     // build the map function
     map(callback){
+        var tempArr = [];
 
+        for(var i = 0;i<this.arr.length; i++){
+            tempArr.push(callback(this.arr[i], i,,this.arr))
+        }
+        return tempArr;
     }
 
     // build filter method
     filter(callback){
+        var tempArr = [];
 
+        for(var i = 0; i<this.arr.length;i++){
+            if(callback(this.arr[i], i, this.arr)){
+                tempArr.push(this.arr[i])
+            }
+        }
+        return tempArr;
     }
 
     // build reduce method
@@ -30,7 +42,9 @@ var myArr1 = new MyArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 myArr1;
 
 // add 5 to each position
-var map1 // = myArr1.map();
+var map1  = myArr1.map(function(elem,index,arr){
+    return elem+5
+});
 
 map1;
 
@@ -46,7 +60,9 @@ myArr2;
 
 
 //remove evens from myArr2
-var filter1 //= myArr2.filter();
+var filter1 = myArr2.filter(function(elem, index, arr){
+    return elem%2 ===1;
+});
 
 filter1;
 

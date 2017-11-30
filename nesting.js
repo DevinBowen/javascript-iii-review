@@ -302,14 +302,14 @@ var starships = [
 ]
 
 // access manufacturer of the millenium falcon (index 3)
-var milleniumFalcon
+var milleniumFalcon = starships[3];
 milleniumFalcon;
 
-var milleniumFalconManufacturer;
+var milleniumFalconManufacturer = milleniumFalcon.manufacturer;
 milleniumFalconManufacturer;
 
 // access the cost_in_credits of the death star (index 2)
-var deathStarCost;
+var deathStarCost = starships[2].cost_in_credits;
 deathStarCost;
 
 // get the name of the starship in index 19
@@ -317,10 +317,21 @@ var ship19 = starships[19].name
 ship19;
 
 // make an array of all the names of the ships
+
+function getName (ship, index, array){
+    return ship.name
+}
+
 var shipsNames //= starships.map()
 shipsNames;
 
 // make an array of all the manufacturers DO NOT WORRY ABOUT DUPLICATES
+
+var manufacturers = starships.map(function(ship,index,arr){
+    return ship.manufacturer;
+})
+manufacturers;
+
 var manufacturers //= starships.map()
 manufacturers;
 
@@ -329,9 +340,12 @@ var bigShips //= starships.filter()
 bigShips;
 
 // get an array of all the ships with a starship_class of Starfighter
-var myArmy //= starships.filter()
+var myArmy = starships.filter(function(ship,index,arr){
+    return ship.starship_class === 'Starfighter';
+})
 myArmy;
-
+var length = myArmy.length;
+length;
 // find the total cost of all the ships
 var totalCost //= starships.reduce()
 totalCost;
